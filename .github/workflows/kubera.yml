@@ -1,1 +1,17 @@
-
+name: Installation
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: debianmaster/action-k3s@master
+      id: k3s
+      with:
+        version: 'v0.9.1'
+    - run: |
+        kubectl get nodes
+        curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+        chmod 700 get_helm.sh
+        ./get_helm.sh
+        helm version
+     
