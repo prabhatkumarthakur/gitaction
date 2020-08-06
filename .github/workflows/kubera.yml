@@ -1,10 +1,10 @@
-name: Installation
+name: Testing
 on: push
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: debianmaster/action-k3s@master
+    - uses: debianmaster/actions-k3s@master
       id: k3s
       with:
         version: 'v0.9.1'
