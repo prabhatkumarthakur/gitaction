@@ -33,4 +33,6 @@ jobs:
           sudo helm repo add kubera https://charts.mayadata.io/
           sudo helm repo update
           sudo helm install kubera kubera/kubera-charts --set server.url=$URL
+          sleep 50
+          sudo kubectl get pod 
       
