@@ -22,4 +22,7 @@ jobs:
           chmod 700 get_helm.sh
           ./get_helm.sh
           helm version
-     
+      - name: create secret
+        run: | 
+          kubectl create secret docker-registry directoronprem-registry-secret --docker-server=registry.mayadata.io --docker-username=${{ secrets.DOCKER_USERNAME }} --docker-password=${{ secrets.DOCKER_PASSWORD }}
+          kubectl get secret -A
