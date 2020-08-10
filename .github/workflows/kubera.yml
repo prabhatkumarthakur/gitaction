@@ -28,7 +28,7 @@ jobs:
           sudo kubectl get secret
       - name: kubera install
         run: |    
-          IP=$(sudo kubectl get nodes -o wide --no-headers | grep node | awk {'print $7'} | head -n 1)
+          IP=$(sudo kubectl get nodes -o wide --no-headers | awk {'print $6'} | head -n 1)
           URL=http://$IP
           sudo helm repo add kubera https://charts.mayadata.io/
           sudo helm repo update
